@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
     'home',
+    'crispy_forms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -49,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
 ROOT_URLCONF = 'ContainerLogistics.urls'

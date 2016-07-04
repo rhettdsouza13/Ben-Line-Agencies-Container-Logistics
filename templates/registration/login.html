@@ -1,0 +1,32 @@
+{% extends "regbase.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+
+         <div class="form">
+                <form method="post" >{% csrf_token %}
+                    {% for field in form %}
+
+                    <div class="input-group input-group-lg">
+                      <span class="input-group-addon input-group-lg" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+                      {{ field }}
+                    </div>
+                    {% endfor %}
+                    <button type="submit">Enter</button>
+                  </form>
+                  <div class="cta"><a href="{%  %}">Forgot your password?</a></div>
+                  <p>Not  a member? <a href="{% url 'registration_register' %}">Register</a>!</p>
+
+                </div>
+
+
+              </div>
+              <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+              <script type="text/javascript" >
+                  $(document).ready(function(){
+                      $("#id_username").attr('placeholder', '{{form.username.label}}');
+                      $("#id_password").attr('placeholder', '{{form.password.label}}');
+                  });
+              </script>
+{% endblock %}
