@@ -1,5 +1,10 @@
-<html>
-<body>
-  Thank you for registering
-</body>
-</html>
+{% extends 'regbase.html' %}
+{% block title %}
+<title>Success!</title>
+{% endblock %}
+{% block content %}
+<h4>Thank You For Registering with Ben Line Agencies Logistics</h4>
+<br><br>
+<div><a href="{% url 'auth_login' %}"><button style= "width : 30% " value="Login Now" >Login Now</button></a>
+</div>
+{% endblock %}
