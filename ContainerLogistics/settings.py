@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'registration',
     'home',
     'crispy_forms',
+    'ContainerIn',
+    'ContainerDisplay',
 )
 
 MIDDLEWARE_CLASSES = (

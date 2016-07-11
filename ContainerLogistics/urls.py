@@ -20,6 +20,9 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'home.views.Home', name='home'),
-    url(r'^dashboard/', 'home.views.dashboard', name='home'),
+    url(r'^dashboard/$', 'home.views.dashboard', name='home'),
+    url(r'^dashboard/form/', 'ContainerIn.views.ContainerFormer', name='Conform'),
+    url(r'^dashboard/show/', 'ContainerDisplay.views.ShowData', name='Contable'),
+
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ]
