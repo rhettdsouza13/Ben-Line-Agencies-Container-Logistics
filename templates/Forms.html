@@ -106,37 +106,37 @@
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="Tables.html"><i class="fa fa-th-list fa-fw">
+                    <li><a><i class="fa fa-th-list fa-fw">
                         <div class="icon-bg bg-blue"></div>
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="DataGrid.html"><i class="fa fa-database fa-fw">
+                    <li><a><i class="fa fa-database fa-fw">
                         <div class="icon-bg bg-red"></div>
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="Pages.html"><i class="fa fa-file-o fa-fw">
+                    <li><a><i class="fa fa-file-o fa-fw">
                         <div class="icon-bg bg-yellow"></div>
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="Extras.html"><i class="fa fa-gift fa-fw">
+                    <li><a><i class="fa fa-gift fa-fw">
                         <div class="icon-bg bg-grey"></div>
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="Dropdown.html"><i class="fa fa-sitemap fa-fw">
+                    <li><a><i class="fa fa-sitemap fa-fw">
                         <div class="icon-bg bg-dark"></div>
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="Email.html"><i class="fa fa-envelope-o">
+                    <li><a><i class="fa fa-envelope-o">
                         <div class="icon-bg bg-primary"></div>
                     </i><span class="menu-title"></span></a>
 
                     </li>
-                    <li><a href="Charts.html"><i class="fa fa-bar-chart-o fa-fw">
+                    <li><a><i class="fa fa-bar-chart-o fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title"></span></a>
 
@@ -184,23 +184,23 @@
                                                     <div class="row">
                                                        <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input  name= "VSL NAME" type="text" placeholder="VSL NAME" class="form-control" /></div>
+                                                                <input  name= "VSL_NAME" type="text" placeholder="VSL NAME" class="form-control" /></div>
                                                         </div>
                                                          <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input  name= "VOY NUMBER" type="text" placeholder="VOY NUMBER" class="form-control" /></div>
+                                                                <input  name= "VOY_NUMBER" type="text" placeholder="VOY NUMBER" class="form-control" /></div>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                          <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input  name= "ETA NHAVA SHEVA" type="text" placeholder="ETA NHAVA SHEVA" class="form-control" />
+                                                                <input  name= "TERMINAL" type="text" placeholder="TERMINAL" class="form-control" />
                                                                 </div>
                                                         </div>
 
                                                           <div class="col-md-6">
                                                             <div class="form-group">
-                                                                <input  name= "CONTAINER NO" type="text" placeholder="CONTAINER NO" class="form-control" />
+                                                                <input  name= "CONTAINER_NO" type="text" placeholder="CONTAINER NO" class="form-control" />
                                                                 </div>
                                                     </div>
 
@@ -209,11 +209,11 @@
                                                     <div class="row">
                                                          <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <input name="IGM NO." type="text" placeholder="IGM NO." class="form-control" /></div>
+                                                                <input name="IGM_NO" type="text" placeholder="IGM NO." class="form-control" /></div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <input  id = "datepicker" name="IGM DATE" type="text" placeholder="IGM DATE" class="form-control" /></div>
+                                                                <input  id = "datepicker" name="IGM_DATE" type="text" placeholder="IGM DATE" class="form-control"/></div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group">
@@ -245,48 +245,38 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <textarea rows="5" placeholder="Additional info" class="form-control"></textarea></div>
+                                                        <textarea rows="5" placeholder="REMARKS" class="form-control"></textarea></div>
                                                     <hr />
                                                     <div class="form-group">
                                                     <input id="inputIncludeFile" type="file" placeholder="Include some file" name="upload" /></div>
                                                     <hr />
                                                     <div class="form-group">
-                                                        <div class="radio">
-                                                            <label class="radio-inline">
-                                                                <input id="optionsVisa" type="radio" name="optionsRadios" value="Visa" checked="checked" />&nbsp;
-                                                                Visa</label><label class="radio-inline"><input id="optionsMasterCard" type="radio"
-                                                                    name="optionsRadios" value="MasterCard" />&nbsp; MasterCard</label><label class="radio-inline"><input
-                                                                        id="optionsPayPal" type="radio" name="optionsRadios" value="PayPal" />&nbsp; PayPal</label></div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input id="inputNameCard" type="text" placeholder="Name on card" class="form-control" /></div>
+                                                        <input name="STATUS" type="text" placeholder="STATUS" class="form-control" /></div>
                                                     <div class="row">
                                                         <div class="col-md-9">
                                                             <div class="form-group">
-                                                                <input id="inputCardNumber" type="text" placeholder="Card number" class="form-control" /></div>
+                                                                <input name="POD" type="text" placeholder="POD" class="form-control" /></div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
-                                                                <input id="inputCVV2" type="text" placeholder="CVV2" class="form-control" /></div>
+                                                                <input name="RAIL_ROUD_OUT" type="text" placeholder="RAIL_ROUD_OUT" class="form-control" /></div>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <div class="form-group mbn">
-                                                                <label class="pts">
-                                                                    Expiration date</label></div>
-                                                        </div>
-                                                        <div class="col-md-5">
+                                                  <div class="row">
+                                                        <div class="col-md-9">
                                                             <div class="form-group">
-                                                                <select class="form-control">
-                                                                    <option>Month</option>
-                                                                </select></div>
+                                                                <input name="EMPTY_IN" type="text" placeholder="EMPTY_IN" class="form-control" /></div>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <div class="form-group mbn">
-                                                                <input id="inputYear" type="text" placeholder="Year" class="form-control" /></div>
+                                                            <div class="form-group">
+                                                                <input name="YARD" type="text" placeholder="YARD" class="form-control" /></div>
+                                                        </div>
+                                                         <div class="col-md-4">
+                                                            <div class="form-group">
+                                                                <input  id = "datepicker" name="IGM_DATE" type="text" placeholder="IGM DATE" class="form-control"/></div>
                                                         </div>
                                                     </div>
+                                                   
                                                 </div>
                                                 <div class="form-actions text-right pal">
                                                     <button type="submit" class="btn btn-primary">
