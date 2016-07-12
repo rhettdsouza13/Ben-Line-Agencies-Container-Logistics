@@ -30,7 +30,7 @@ def ContainerFormer(request):
         contain.EMPTY_IN = form['EMPTY_IN']
         contain.YARD = form['YARD']
         contain.save()
-        
+
         files = request.FILES
         handle_uploaded_file(files['upload'])
 
@@ -68,6 +68,7 @@ def ContainerFormer(request):
         	RAIL_ROUD_OUT.append(sheet['N' + str(row)].value)
         	EMPTY_IN.append(sheet['O' + str(row)].value)
         	YARD.append(sheet['P' + str(row)].value)
+            
         for i in xrange(0, len(CONTAINER_NO)):
             container = ContainerIn()
             container.VSL_NAME = VSL_NAME[i]

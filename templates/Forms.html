@@ -23,6 +23,11 @@
     <link type="text/css" rel="stylesheet" href="{% static 'css/zabuto_calendar.min.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'css/pace.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'css/jquery.news-ticker.css' %}">
+    <script>
+ $(function() {
+   $( "#datepicker" ).datepicker();
+ });
+ </script>
 </head>
 <body>
     <div>
@@ -273,10 +278,10 @@
                                                         </div>
                                                          <div class="col-md-4">
                                                             <div class="form-group">
-                                                                <input  id = "datepicker" name="IGM_DATE" type="text" placeholder="IGM DATE" class="form-control"/></div>
+                                                                <input  id = "datepicker" name="DISCHARGE_DATE" type="text" placeholder="DISCHARGE_DATE" class="form-control"/></div>
                                                         </div>
                                                     </div>
-                                                   
+
                                                 </div>
                                                 <div class="form-actions text-right pal">
                                                     <button type="submit" class="btn btn-primary">
@@ -338,11 +343,7 @@
     <!--CORE JAVASCRIPT-->
     <script src="{% static 'js/main.js' %}"></script>
 
-     <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
+
 
 </body>
 </html>
