@@ -32,11 +32,12 @@ def Form(request):
 
         filein = DocumentForm(request.POST, request.FILES)
         if filein.is_valid():
-            newfile = Documents(excel = filein['docfile'])
+            newfile = Documents()
+            newfile.excel = filein.cleaned_data['docfile']
             newfile.save()
 
 
-        ''' wb = openpyxl.load_workbook('files/import_data.xlsx')
+            wb = openpyxl.load_workbook(newfile.excel.path)
             sheet = wb.get_sheet_by_name('JUNE 2016')
             VSL_NAME = []
             VOY= []
@@ -87,7 +88,7 @@ def Form(request):
                 container.RAIL_ROUND_OUT = RAIL_ROUD_OUT[i]
                 container.EMPTY_IN = EMPTY_IN[i]
                 container.YARD = YARD[i]
-                container.save()'''
+                container.save()
 
         return render(request, "first.html")
 
