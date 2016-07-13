@@ -93,7 +93,7 @@
                 <ul id="side-menu" class="nav">
 
                      <div class="clearfix"></div>
-                    <li class="active"><a href="dashboard.html"><i class="fa fa-tachometer fa-fw">
+                    <li class="active"><a href="/dashboard/"><i class="fa fa-tachometer fa-fw">
                         <div class="icon-bg bg-orange"></div>
                     </i><span class="menu-title">Dashboard</span></a></li>
                     <li><a href="Forms.html"><i class="fa fa-desktop fa-fw">
@@ -101,12 +101,12 @@
                     </i><span class="menu-title">Enter Data</span></a>
 
                     </li>
-                    <li><a href="tables.html"><i class="fa fa-send-o fa-fw">
+                    <li><a href="/dashboard/show/"><i class="fa fa-send-o fa-fw">
                         <div class="icon-bg bg-green"></div>
                     </i><span class="menu-title">View Data</span></a>
 
                     </li>
-                    <li><a href="Forms.html"><i class="fa fa-edit fa-fw">
+                    <li><a href="#"><i class="fa fa-edit fa-fw">
                         <div class="icon-bg bg-violet"></div>
                     </i><span class="menu-title"></span></a>
 
@@ -182,7 +182,7 @@
                             </div>
                                         <div class="panel panel-grey">
                                             <div class="panel-heading">
-                                                Enter details </div>
+                                                Enter Details </div>
                                             <div class="panel-body pan">
                                                 <form method="post" >{% csrf_token %}
                                                 <div class="form-body pal">
@@ -234,29 +234,29 @@
                                                            <div class="form-group">
                                                             <div class="radio">
                                                             <label class="radio-inline">
-                                                                <input  name="STATUS" type="radio" value="LDD" checked="checked" />&nbsp;
-                                                                LDD</label><label class="radio-inline"><input id="optionsMasterCard" type="radio"
-                                                                    name="STATUS" value="MasterCard" />&nbsp; MasterCard</label></div>
+                                                              <input name="STATUS"  type="radio" value="LDD" checked="checked" />&nbsp;
+                                                              LDD</label><label class="radio-inline"><input   type="radio"
+                                                                  name="STATUS" value="ETY" />&nbsp; ETY</label></div>
                                                     </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                              <div class="form-group">
                                                             <div class="radio">
                                                             <label class="radio-inline">
-                                                                <input name="ICD" name="IDD" type="radio" value="ICD" checked="checked" />&nbsp;
-                                                                ICD</label><label class="radio-inline"><input id="optionsMasterCard"  type="radio"
-                                                                    name="ICD" value="Local" />&nbsp; Local</label></div>
+                                                                <input name="ICD_LOCAL"  type="radio" value="ICD" checked="checked" />&nbsp;
+                                                                ICD</label><label class="radio-inline"><input   type="radio"
+                                                                    name="ICD_LOCAL" value="LOCAL" />&nbsp; Local</label></div>
                                                     </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <textarea rows="5" placeholder="REMARKS" class="form-control"></textarea></div>
                                                     <hr />
-                                                    <div class="form-group">
-                                                    <input id="inputIncludeFile" type="file" placeholder="Include some file" name="upload" /></div>
+                                                    <!--<div class="form-group">
+
+                                                      {{ fileform }}
+                                                    -->
                                                     <hr />
-                                                    <div class="form-group">
-                                                        <input name="STATUS" type="text" placeholder="STATUS" class="form-control" /></div>
                                                     <div class="row">
                                                         <div class="col-md-9">
                                                             <div class="form-group">
@@ -264,7 +264,7 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
-                                                                <input name="RAIL_ROUD_OUT" type="text" placeholder="RAIL_ROUD_OUT" class="form-control" /></div>
+                                                                <input name="RAIL_ROUD_OUT" type="text" placeholder="RAIL/ROAD OUT" class="form-control" /></div>
                                                         </div>
                                                     </div>
                                                   <div class="row">
@@ -288,6 +288,7 @@
                                                         Continue</button>
                                                 </div>
                                                 </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -298,8 +299,7 @@
                 </div>
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
-                <div id="footer">
-                        </div>
+
                 <!--END FOOTER-->
             </div>
             <!--END PAGE WRAPPER-->

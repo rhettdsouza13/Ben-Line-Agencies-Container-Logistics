@@ -3,4 +3,4 @@ from ContainerIn.models import *
 
 # Register your models here.
 
-admin.site.register(ContainerIn)
+admin.site.register([ContainerIn, Documents])
