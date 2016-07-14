@@ -90,6 +90,28 @@ def Form(request):
                 container.YARD = YARD[i]
                 container.save()
 
-        return render(request, "first.html")
+        return render(request, "Forms.html")
 
     return render(request, 'Forms.html', {'fileform':fileform})
+
+
+
+
+def ContainerDisplay(request):
+
+    if request.method == 'POST':
+        containerList = ContainerIn.objects.all()
+        containerToGo = []
+        form = request.POST
+        for container in containerList:
+            if form['CONTAINER_NO']:
+
+                if container.CONTAINER_NO == form['CONTAINER_NO']:
+                    containerToGo.append(container)
+            else:
+                if container.ACCOUNT == form['account'] and container.DISCHARGE_DATE[3:5] == form['month']:
+                    containerToGo.append(container)
+
+        return render(request, "tables.html", { "containerToGo": containerToGo })
+
+    return render(request, "tables.html")

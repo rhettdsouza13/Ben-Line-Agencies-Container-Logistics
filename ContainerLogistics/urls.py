@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^$', 'home.views.Home', name='home'),
     url(r'^dashboard/$', 'home.views.dashboard', name='home'),
     url(r'^dashboard/form/', 'ContainerIn.views.Form', name='Conform'),
-    url(r'^dashboard/show/', 'ContainerDisplay.views.ShowData', name='Contable'),
-
+    url(r'^dashboard/show/', 'ContainerIn.views.ContainerDisplay', name='Contable'),
+    url(r'^forgot', TemplateView.as_view(template_name="forgot.html")),
     url(r'^accounts/', include('registration.backends.simple.urls')),
 ]

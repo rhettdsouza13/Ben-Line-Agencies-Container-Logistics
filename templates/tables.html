@@ -17,34 +17,35 @@
                                             <div class="panel-heading">
                                                 Search Form</div>
                                             <div class="panel-body pan">
-                                                <form action="#">
+                                                <form method="post" enctype="multipart/form-data" > {% csrf_token %}
                                                 <div class="form-body pal">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="inputName" class="control-label">
-                                                                    Container No</label>
+                                                                    Accout</label>
                                                                 <div class="input-icon right">
-                                                                    <i class="fa fa-user"></i>
-                                                                    <input id="inputName" type="text" placeholder="" class="form-control" /></div>
+                                                                    
+                                                                    <input id="inputName" type="text" placeholder="" class="form-control" name="account" /></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group">
                                                                 <label for="inputEmail" class="control-label">
-                                                                    Select 4 Fields </label>
+                                                                    Month </label>
                                                                 <div class="input-icon right">
-                                                                    <i class="fa fa-envelope"></i>
-                                                                    <input id="inputEmail" type="text" placeholder="" class="form-control" /></div>
+
+                                                                    <input id="inputEmail" type="text" placeholder="" class="form-control" name="month" /></div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                  <hr></hr>
                                                     <div class="form-group">
                                                         <label for="inputSubject" class="control-label">
-                                                            Subject</label>
+                                                            Specific Container Only</label>
                                                         <div class="input-icon right">
-                                                            <i class="fa fa-tag"></i>
-                                                            <input id="inputSubject" type="text" placeholder="" class="form-control" /></div>
+
+                                                            <input id="inputSubject" type="text" placeholder="" class="form-control" name="CONTAINER_NO" /></div>
                                                     </div>
 
                                                 <div class="form-actions text-right pal">
@@ -63,54 +64,38 @@
                                 </div>
                             </div>
                                        <div class="panel panel-grey">
-                            <div class="panel-heading">Consized Form</div>
+                            <div class="panel-heading">Container Data</div>
                             <div class="panel-body">
                                 <table class="table table-hover table-bordered">
                                     <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Column</th>
-                                        <th>Column</th>
-                                        <th>Column</th>
-                                        <th>Column</th>
+                                        <th>VSL NAME</th>
+                                        <th>CONTAINER NO</th>
+                                        <th>VOYAGE</th>
+                                        <th>DISCHARGE DATE</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% if containerToGo %}
+                                    {% for container in containerToGo %}
                                     <tr>
                                         <td>1</td>
-                                        <td class="active">active</td>
-                                        <td class="success">success</td>
-                                        <td class="warning">warning</td>
-                                        <td class="danger">danger</td>
+                                        <td class="active">{{ container.VSL_NAME }}</td>
+                                        <td class="success">{{ container.CONTAINER_NO }}</td>
+                                        <td class="warning">{{ container.VOY_NUMBER }}</td>
+                                        <td class="danger">{{ container.DISCHARGE_DATE }}</td>
                                     </tr>
+                                    {% endfor %}
+                                    {% else %}
                                     <tr>
-                                        <td>2</td>
-                                        <td class="active">active</td>
-                                        <td class="success">success</td>
-                                        <td class="warning">warning</td>
-                                        <td class="danger">danger</td>
+                                        <td>1</td>
+                                        <td class="active">No Data Please Search</td>
+                                        <td class="success">N/A</td>
+                                        <td class="warning">N/A</td>
+                                        <td class="danger">N/A</td>
                                     </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td class="active">active</td>
-                                        <td class="success">success</td>
-                                        <td class="warning">warning</td>
-                                        <td class="danger">danger</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td class="active">active</td>
-                                        <td class="success">success</td>
-                                        <td class="warning">warning</td>
-                                        <td class="danger">danger</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td class="active">active</td>
-                                        <td class="success">success</td>
-                                        <td class="warning">warning</td>
-                                        <td class="danger">danger</td>
-                                    </tr>
+                                    {% endif %}
                                     </tbody>
                                 </table>
                             </div>
@@ -125,4 +110,3 @@
                 <!--END CONTENT-->
                 <!--BEGIN FOOTER-->
                 {% endblock %}
-                
