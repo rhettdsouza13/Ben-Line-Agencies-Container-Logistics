@@ -38,57 +38,58 @@ def Form(request):
 
 
             wb = openpyxl.load_workbook(newfile.excel.path)
-            sheet = wb.get_sheet_by_name('JUNE 2016')
-            VSL_NAME = []
-            VOY= []
-            TERMINAL=[]
-            IGM_NO=[]
-            IGM_DATE=[]
-            ACCOUNT =[]
-            CONTAINER_NO=[]
-            SIZE = []
-            STATUS = []
-            ICD_LOCAL=[]
-            POD = []
-            DISCHARGE_DATE= []
-            RAIL_ROUD_OUT = []
-            EMPTY_IN=[]
-            YARD= []
-            for row in range(2, sheet.max_row + 1):
-            	VSL_NAME.append(sheet['B' + str(row)].value)
-            	VOY.append(sheet['C' + str(row)].value)
-            	TERMINAL.append(sheet['D' + str(row)].value)
-            	IGM_NO.append(sheet['E' + str(row)].value)
-            	IGM_DATE.append(sheet['F' + str(row)].value)
-            	ACCOUNT.append(sheet['G' + str(row)].value)
-            	CONTAINER_NO.append(sheet['H' + str(row)].value)
-            	SIZE.append(sheet['I' + str(row)].value)
-            	STATUS.append(sheet['J' + str(row)].value)
-            	ICD_LOCAL.append(sheet['K' + str(row)].value)
-            	POD.append(sheet['L' + str(row)].value)
-            	DISCHARGE_DATE.append(sheet['M' + str(row)].value)
-            	RAIL_ROUD_OUT.append(sheet['N' + str(row)].value)
-            	EMPTY_IN.append(sheet['O' + str(row)].value)
-            	YARD.append(sheet['P' + str(row)].value)
 
-            for i in xrange(0, len(CONTAINER_NO)):
-                container = ContainerIn()
-                container.VSL_NAME = VSL_NAME[i]
-                container.VOY_NUMBER = VOY[i]
-                container.TERMINAL = TERMINAL[i]
-                container.IGM_NO = IGM_NO[i]
-                container.IGM_DATE = IGM_DATE[i]
-                container.ACCOUNT = ACCOUNT[i]
-                container.CONTAINER_NO = CONTAINER_NO[i]
-                container.SIZE = SIZE[i]
-                container.STATUS = STATUS[i]
-                container.ICD_LOCAL = ICD_LOCAL[i]
-                container.POD = POD[i]
-                container.DISCHARGE_DATE = DISCHARGE_DATE[i]
-                container.RAIL_ROUND_OUT = RAIL_ROUD_OUT[i]
-                container.EMPTY_IN = EMPTY_IN[i]
-                container.YARD = YARD[i]
-                container.save()
+            for sheet in wb.worksheets:
+                VSL_NAME = []
+                VOY= []
+                TERMINAL=[]
+                IGM_NO=[]
+                IGM_DATE=[]
+                ACCOUNT =[]
+                CONTAINER_NO=[]
+                SIZE = []
+                STATUS = []
+                ICD_LOCAL=[]
+                POD = []
+                DISCHARGE_DATE= []
+                RAIL_ROUD_OUT = []
+                EMPTY_IN=[]
+                YARD= []
+                for row in range(2, sheet.max_row + 1):
+                	VSL_NAME.append(sheet['B' + str(row)].value)
+                	VOY.append(sheet['C' + str(row)].value)
+                	TERMINAL.append(sheet['D' + str(row)].value)
+                	IGM_NO.append(sheet['E' + str(row)].value)
+                	IGM_DATE.append(sheet['F' + str(row)].value)
+                	ACCOUNT.append(sheet['G' + str(row)].value)
+                	CONTAINER_NO.append(sheet['H' + str(row)].value)
+                	SIZE.append(sheet['I' + str(row)].value)
+                	STATUS.append(sheet['J' + str(row)].value)
+                	ICD_LOCAL.append(sheet['K' + str(row)].value)
+                	POD.append(sheet['L' + str(row)].value)
+                	DISCHARGE_DATE.append(sheet['M' + str(row)].value)
+                	RAIL_ROUD_OUT.append(sheet['N' + str(row)].value)
+                	EMPTY_IN.append(sheet['O' + str(row)].value)
+                	YARD.append(sheet['P' + str(row)].value)
+
+                for i in xrange(0, sheet.max_row):
+                    container = ContainerIn()
+                    container.VSL_NAME = VSL_NAME[i]
+                    container.VOY_NUMBER = VOY[i]
+                    container.TERMINAL = TERMINAL[i]
+                    container.IGM_NO = IGM_NO[i]
+                    container.IGM_DATE = IGM_DATE[i]
+                    container.ACCOUNT = ACCOUNT[i]
+                    container.CONTAINER_NO = CONTAINER_NO[i]
+                    container.SIZE = SIZE[i]
+                    container.STATUS = STATUS[i]
+                    container.ICD_LOCAL = ICD_LOCAL[i]
+                    container.POD = POD[i]
+                    container.DISCHARGE_DATE = DISCHARGE_DATE[i]
+                    container.RAIL_ROUND_OUT = RAIL_ROUD_OUT[i]
+                    container.EMPTY_IN = EMPTY_IN[i]
+                    container.YARD = YARD[i]
+                    container.save()
 
         return render(request, "Forms.html")
 
@@ -103,15 +104,30 @@ def ContainerDisplay(request):
         containerList = ContainerIn.objects.all()
         containerToGo = []
         form = request.POST
-        for container in containerList:
-            if form['CONTAINER_NO']:
+        if form['CONTAINER_NO'] or form['account']:
+            for container in containerList:
+                if form['CONTAINER_NO']:
 
-                if container.CONTAINER_NO == form['CONTAINER_NO']:
-                    containerToGo.append(container)
-            else:
-                if container.ACCOUNT == form['account'] and container.DISCHARGE_DATE[3:5] == form['month']:
-                    containerToGo.append(container)
+                    if container.CONTAINER_NO == form['CONTAINER_NO']:
+                        containerToGo.append(container)
+                else:
+                    if container.ACCOUNT == form['account'] and container.DISCHARGE_DATE[3:5] == form['month']:
+                        containerToGo.append(container)
 
-        return render(request, "tables.html", { "containerToGo": containerToGo })
+
+            return render(request, "tables.html", { "containerToGo": containerToGo })
+        else:
+            containerToWrite = []
+
+            for container in containerList:
+                if container.DISCHARGE_DATE[3:5] == form['monthD'] and container.DISCHARGE_DATE[6:] == form['yearD']:
+                    containerToWrite.append(container)
+            downloadExcel = Documents()
+            downloadExcel.excel.file = abcd
+            for container in containerToWrite:
+                container.s
+
+
+
 
     return render(request, "tables.html")
